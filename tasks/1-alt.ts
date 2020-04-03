@@ -1,5 +1,6 @@
 import { generate, Observable, merge } from 'rxjs';
 import { reduce } from 'rxjs/operators'
+import { solver } from '../solver';
 
 const fives$ = (max: number): Observable<number> => generate(
   5,
@@ -20,5 +21,6 @@ const taskOneAlt = (maxNumber: number) => merge(
     reduce((acc, val: number) => acc + val)
 );
 
-taskOneAlt(10).subscribe(val => console.log('alt example:', val));
-taskOneAlt(1000).subscribe(val => console.log('alt solution:', val));
+solver(taskOneAlt(10), 'Challenge 1 alt example');
+solver(taskOneAlt(1000), 'Challenge 1 alt');
+solver(taskOneAlt(10000000), 'Challenge 1 alt big');

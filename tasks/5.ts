@@ -1,6 +1,7 @@
 import { range } from "rxjs";
 import { primeFactorsDict } from '../operators/primeFactorsDict';
 import { map } from "rxjs/operators";
+import { solver } from "../solver";
 
 const taskFive = (rangeMax: number) => range(1, rangeMax).pipe(
   primeFactorsDict(),
@@ -9,4 +10,4 @@ const taskFive = (rangeMax: number) => range(1, rangeMax).pipe(
       (product, [key, value]) => product *= (Number(key) ** value), 1)),
 );
 
-taskFive(20).subscribe(val => console.log(val));
+solver(taskFive(20), 'Challenge 4 example');

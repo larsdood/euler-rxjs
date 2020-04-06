@@ -9,7 +9,6 @@ export const primeFactors = (): UnaryFunction<Observable<number>, Observable<num
       filter(prime => product % prime === 0),
       reduce((accumulatedFactors: number[], primeFactor: number) => [...accumulatedFactors, primeFactor], [] as number[])
     )),
-    map(val => val as number[])
   );
 
 export const primeFactorsImproved = (): UnaryFunction<Observable<number>, Observable<number[]>> =>

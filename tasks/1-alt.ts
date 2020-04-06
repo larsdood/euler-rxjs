@@ -2,16 +2,16 @@ import { generate, Observable, merge } from 'rxjs';
 import { reduce } from 'rxjs/operators'
 import { solver } from '../solver';
 
-const fives$ = (max: number): Observable<number> => generate(
-  5,
-  val => val < max,
-  val => val + 5,
-);
-
 const threes$ = (max: number): Observable<number> => generate(
   3,
   val => val < max,
-  val => (val += 3) % 5 === 0 ? val + 3 : val,
+  val => val + 3,
+);
+
+const fives$ = (max: number): Observable<number> => generate(
+  5,
+  val => val < max,
+  val => (val += 5) % 3 === 0 ? val + 5 : val,
 );
 
 const taskOneAlt = (maxNumber: number) => merge(
